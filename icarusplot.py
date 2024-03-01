@@ -13,10 +13,12 @@ import os
 ## Load the style file
 
 envvar=str(os.getenv('PYTHONPATH'))
-part=envvar.partition(':')
-for i in part:
+pypath=envvar.split(':')
+for i in pypath:
     if i.find('icarusplot')>=0:
+        print("@@ Importing mplstyle from %s"%(i+'/icarus_style.mplstyle'))
         plt.style.use(i+'/icarus_style.mplstyle')
+        break
 
 #######################
 ## Swap color scheme to grayscale
