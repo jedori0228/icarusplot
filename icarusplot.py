@@ -63,6 +63,7 @@ def POT(_axis,_pot):
 def RatioCanvas(_title='null'):
     fig, axs = plt.subplots(2, sharex=True, height_ratios=[0.7,0.3])
     fig.subplots_adjust(hspace=0)
+    fig.align_ylabels()
     if _title!='null':
         axs[0].set_title(_title)
     axs[1].set_ylim(0.65,1.35)

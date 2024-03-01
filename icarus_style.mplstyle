@@ -5,6 +5,7 @@
 font.sans-serif:  Helvetica, Helvetica Neue, Nimbus Sans, Liberation Sans, Arial
 
 ## FIGURE
+figure.titlesize: 36
 # BH: this seems to mess up subplots_adjust, comment out for now
 #figure.constrained_layout.use: True
 
@@ -14,7 +15,7 @@ axes.linewidth: 1.0
 axes.labelsize: xx-large
 axes.titlesize: 36
 # adding an additional padding, tuned based on an example plot and giving room for the preliminary/POT labels, etc.
-axes.titlepad: 22
+axes.titlepad: 24
 
 ## PATCHES
 # DUNE claims histograms are patches
