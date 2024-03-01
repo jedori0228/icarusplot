@@ -5,6 +5,7 @@
 ## Thanks to various other sources and documentation for help in using some of the functions
 
 import matplotlib.pyplot as plt
+import matplotlib
 import numpy as np
 import os
 
@@ -16,6 +17,12 @@ part=envvar.partition(':')
 for i in part:
     if i.find('icarusplot')>=0:
         plt.style.use(i+'/icarus_style.mplstyle')
+
+#######################
+## Swap color scheme to grayscale
+## Only giving 4 colors at moment here...
+def useGrayscale():
+    matplotlib.rc('axes',prop_cycle=matplotlib.cycler('color',['000000','555555','888888','bbbbbb']))
 
 #######################
 ## Plot labeling
@@ -116,15 +123,19 @@ def RecoVTrue(_axis, _inNPH2D, _xlabel='', _ylabel=''):
         for idxY in range(len(_yb)-1):
             xtxt = _xb[idxX]+(0.2*(_xb[idxX+1]-_xb[idxX]))
             ytxt = _yb[idxY]+(0.2*(_yb[idxY+1]-_yb[idxY]))
+            theFontsize = 16
+            figSizeX, figSizeY = plt.gcf().get_size_inches()
+            if figSizeX < (len(_xb)-1)/3 or figSizeY < (len(_yb)-1)/3:
+                theFontsize = 12
             # if the bin is more than 20% of the total x-span, instead use 0.4 scale
             if (_xb[idxX+1]-_xb[idxX])/(_xb[-1]-_xb[0]) > 0.2:
                 xtxt = _xb[idxX]+(0.4*(_xb[idxX+1]-_xb[idxX]))
             if (_yb[idxY+1]-_yb[idxY])/(_yb[-1]-_yb[0]) > 0.2:
                 ytxt = _yb[idxY]+(0.4*(_yb[idxY+1]-_yb[idxY]))
             if _cts[idxX][idxY] < 0.65*np.max(_cts):
-                _axis.text( x=xtxt, y=ytxt, s='{:.1%}'.format(_cts[idxX][idxY]), color='black', fontsize=16 )
+                _axis.text( x=xtxt, y=ytxt, s='{:.1%}'.format(_cts[idxX][idxY]), color='black', fontsize=theFontsize )
             else:
-                _axis.text( x=xtxt, y=ytxt, s='{:.1%}'.format(_cts[idxX][idxY]), color='white', fontsize=16 )
+                _axis.text( x=xtxt, y=ytxt, s='{:.1%}'.format(_cts[idxX][idxY]), color='white', fontsize=theFontsize )
 
     _axis.set_xlim(_xb[0],_xb[-1])
     _axis.set_ylim(_yb[0],_yb[-1])
