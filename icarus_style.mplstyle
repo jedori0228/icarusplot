@@ -55,7 +55,11 @@ lines.linewidth: 2
 # Okabe-Ito color scheme.  Original ordering.
 # This version removes yellow... Otherwise a direct copy of the DUNE Okabe-Ito v1
 #                                  Black     Orange    Sky blue  Greenish    Blue      Vermilion Purplish
-axes.prop_cycle: cycler('color', ['000000', 'E69F00', '56B4E9', '009E73', '0072B2', 'D55E00', 'CC79A7', ])
+#axes.prop_cycle: cycler('color', ['000000', 'E69F00', '56B4E9', '009E73', '0072B2', 'D55E00', 'CC79A7', ])
+#
+# Attempt to re-order a bit
+#                                  Black     Blue      Orange   Greenish  Sky blue  Vermilion Purplish
+axes.prop_cycle: cycler('color', ['000000', '0072B2', 'E69F00', '009E73', '56B4E9', 'D55E00', 'CC79A7', ])
 
 # Cividis is Colo(u)r Vision Deficiency friendly
 image.cmap: cividis
