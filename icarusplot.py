@@ -66,6 +66,38 @@ def POT(_axis,_pot):
     return _axis.text( x=_use_x, y=_use_y, s='{:0.2}'.format(_use_pot)+r'$\times 10^{20}$'+' POT',\
                        fontsize=13, color='black', horizontalalignment='right' )
 
+def Preliminary(_axis,_loc='upper left'):
+    if _loc!='upper left' and _loc!='upper right' and _loc!='upper middle' and _loc!='lower middle':
+        print('Invalid location for PRELMINARY tag given. Choose upper left, upper right, upper middle, or lower middle.')
+    elif _loc=='upper left':
+        _yrange = _axis.get_ylim()
+        _use_y = _yrange[1] - 0.5*(_yrange[1] - _yrange[0])
+        _xrange = _axis.get_xlim()
+        _use_x = _xrange[0] + 0.05*(_xrange[1] - _xrange[0])
+        return _axis.text(s='PRELIMINARY',x=_use_x,y=_use_y,color='gray',weight='bold',
+                          fontsize=20,alpha=0.6,rotation=40.)
+    elif _loc=='upper right':
+        _yrange = _axis.get_ylim()
+        _use_y = _yrange[1] - 0.5*(_yrange[1] - _yrange[0])
+        _xrange = _axis.get_xlim()
+        _use_x = _xrange[1] - 0.05*(_xrange[1] - _xrange[0])
+        return _axis.text(s='PRELIMINARY',x=_use_x,y=_use_y,color='gray',weight='bold',
+                          fontsize=20,alpha=0.6,rotation=-40.,horizontalalignment='right')
+    elif _loc=='upper middle':
+        _yrange = _axis.get_ylim()
+        _use_y = _yrange[1] - 0.1*(_yrange[1] - _yrange[0])
+        _xrange = _axis.get_xlim()
+        _use_x = _xrange[1] - 0.5*(_xrange[1] - _xrange[0])
+        return _axis.text(s='PRELIMINARY',x=_use_x,y=_use_y,color='gray',weight='bold',
+                          fontsize=20,alpha=0.6,horizontalalignment='center')
+    else:
+        _yrange = _axis.get_ylim()
+        _use_y = _yrange[0] + 0.1*(_yrange[1] - _yrange[0])
+        _xrange = _axis.get_xlim()
+        _use_x = _xrange[1] - 0.5*(_xrange[1] - _xrange[0])
+        return _axis.text(s='PRELIMINARY',x=_use_x,y=_use_y,color='white',weight='bold',
+                          fontsize=20,alpha=0.6,horizontalalignment='center')
+
 #######################
 ## Ratio canvas
 
@@ -76,6 +108,14 @@ def RatioCanvas(_title='null'):
     if _title!='null':
         axs[0].set_title(_title)
     axs[1].set_ylim(0.65,1.35)
+    return fig, axs
+
+def RatioCanvasWithSideband():
+    fig, axs = plt.subplots(2, 2, sharex=True, height_ratios=[0.7,0.3])
+    fig.subplots_adjust(hspace=0)
+    fig.align_ylabels()
+    axs[1][0].set_ylim(0.65,1.35)
+    axs[1][1].set_ylim(0.65,1.35)
     return fig, axs
 
 def UnityLine(_axis):
