@@ -29,31 +29,43 @@ def useGrayscale():
 #######################
 ## Plot labeling
 
-def ICARUSMCPreliminary(_axis):
+def ICARUSMCPreliminary(_axis,_locRight=False):
     _yrange = _axis.get_ylim()
     _use_y = _yrange[1] + 0.025*(_yrange[1] - _yrange[0])
     _xrange = _axis.get_xlim()
-    _use_x = _xrange[0] + 0.025*(_xrange[1] - _xrange[0])    
+    if _locRight==True:
+        _use_x = _xrange[1] - 0.025*(_xrange[1] - _xrange[0])
+        return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Simulation Preliminary', fontsize=14, color='blue', horizontalalignment='right' )
+    _use_x = _xrange[0] + 0.025*(_xrange[1] - _xrange[0])
     return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Simulation Preliminary', fontsize=14, color='blue' )
 
-def ICARUSDataPreliminary(_axis):
+def ICARUSDataPreliminary(_axis,_locRight=False):
     _yrange = _axis.get_ylim()
     _use_y = _yrange[1] + 0.025*(_yrange[1] - _yrange[0])
     _xrange = _axis.get_xlim()
-    _use_x = _xrange[0] + 0.025*(_xrange[1] - _xrange[0])    
+    if _locRight==True:
+        _use_x = _xrange[1] - 0.025*(_xrange[1] - _xrange[0])
+        return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Data Preliminary', fontsize=14, color='#d67a11', horizontalalignment='right' )
+    _use_x = _xrange[0] + 0.025*(_xrange[1] - _xrange[0])
     return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Data Preliminary', fontsize=14, color='#d67a11' )
 
-def ICARUSMC(_axis):
+def ICARUSMC(_axis,_locRight=False):
     _yrange = _axis.get_ylim()
     _use_y = _yrange[1] + 0.025*(_yrange[1] - _yrange[0])
     _xrange = _axis.get_xlim()
-    _use_x = _xrange[0] + 0.025*(_xrange[1] - _xrange[0])    
+    if _locRight==True:
+        _use_x = _xrange[1] - 0.025*(_xrange[1] - _xrange[0])
+        return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Simulation', fontsize=14, color='blue', horizontalalignment='right' )
+    _use_x = _xrange[0] + 0.025*(_xrange[1] - _xrange[0])
     return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Simulation', fontsize=14, color='blue' )
 
-def ICARUSData(_axis):
+def ICARUSData(_axis,_locRight=False):
     _yrange = _axis.get_ylim()
     _use_y = _yrange[1] + 0.025*(_yrange[1] - _yrange[0])
     _xrange = _axis.get_xlim()
+    if _locRight==True:
+        _use_x = _xrange[1] - 0.025*(_xrange[1] - _xrange[0])
+        return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Data', fontsize=14, color='#d67a11', horizontalalignment='right' )
     _use_x = _xrange[0] + 0.025*(_xrange[1] - _xrange[0])
     return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Data', fontsize=14, color='#d67a11' )
 
