@@ -59,7 +59,11 @@ lines.linewidth: 2
 #
 # Attempt to re-order a bit
 #                                  Black     Blue      Orange   Greenish  Sky blue  Vermilion Purplish
-axes.prop_cycle: cycler('color', ['000000', '0072B2', 'E69F00', '009E73', '56B4E9', 'D55E00', 'CC79A7', ])
+#axes.prop_cycle: cycler('color', ['000000', '0072B2', 'E69F00', '009E73', '56B4E9', 'D55E00', 'CC79A7', ])
+
+# Attempt to re-order a bit
+#                                  Blue      Orange   Greenish  Sky blue  Vermilion Purplish
+axes.prop_cycle: cycler('color', ['0072B2', 'E69F00', '009E73', '56B4E9', 'D55E00', 'CC79A7', ])
 
 # Cividis is Colo(u)r Vision Deficiency friendly
 image.cmap: cividis
