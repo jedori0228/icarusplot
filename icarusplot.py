@@ -98,6 +98,13 @@ def Preliminary(_axis,_loc='upper left'):
         return _axis.text(s='PRELIMINARY',x=_use_x,y=_use_y,color='white',weight='bold',
                           fontsize=20,alpha=0.6,horizontalalignment='center')
 
+def AddTextTopLeft(_axis, label):
+    _yrange = _axis.get_ylim()
+    _use_y = _yrange[1] + 0.025*(_yrange[1] - _yrange[0])
+    _xrange = _axis.get_xlim()
+    _use_x = _xrange[0] + 0.*(_xrange[1] - _xrange[0])
+    return _axis.text( x=_use_x, y=_use_y, s=label, fontsize=14, color='k' )
+
 #######################
 ## Ratio canvas
 
