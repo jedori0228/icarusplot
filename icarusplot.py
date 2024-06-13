@@ -29,64 +29,99 @@ def useGrayscale():
 #######################
 ## Plot labeling
 
-def ICARUSMCWip(_axis,_locRight=False):
-    _yrange = _axis.get_ylim()
-    _use_y = _yrange[1] + 0.015*(_yrange[1] - _yrange[0])
-    _xrange = _axis.get_xlim()
-    if _locRight==True:
-        _use_x = _xrange[1] - 0.015*(_xrange[1] - _xrange[0])
-        return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Simulation'+'\nWork In Progress', fontsize=14, color='blue', horizontalalignment='right' )
-    _use_x = _xrange[0] + 0.015*(_xrange[1] - _xrange[0])
-    return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Simulation'+'\nWork In Progress', fontsize=14, color='blue' )
+_LABEL_X_OFFSET = 0.0
+_LABEL_Y_OFFSET = 0.020
 
-def ICARUSDataWip(_axis,_locRight=False):
+def ICARUSMCWip(_axis, _newline=False, _locRight=False):
     _yrange = _axis.get_ylim()
-    _use_y = _yrange[1] + 0.015*(_yrange[1] - _yrange[0])
+    _use_y = _yrange[1] + _LABEL_Y_OFFSET*(_yrange[1] - _yrange[0])
     _xrange = _axis.get_xlim()
-    if _locRight==True:
-        _use_x = _xrange[1] - 0.015*(_xrange[1] - _xrange[0])
-        return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Data'+'\nWork In Progress', fontsize=14, color='#d67a11', horizontalalignment='right' )
-    _use_x = _xrange[0] + 0.015*(_xrange[1] - _xrange[0])
-    return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Data'+'\nWork In Progress', fontsize=14, color='#d67a11' )
 
-def ICARUSMCPreliminary(_axis,_locRight=False):
-    _yrange = _axis.get_ylim()
-    _use_y = _yrange[1] + 0.015*(_yrange[1] - _yrange[0])
-    _xrange = _axis.get_xlim()
-    if _locRight==True:
-        _use_x = _xrange[1] - 0.015*(_xrange[1] - _xrange[0])
-        return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$'+'\nSimulation Preliminary', fontsize=14, color='blue', horizontalalignment='right' )
-    _use_x = _xrange[0] + 0.015*(_xrange[1] - _xrange[0])
-    return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$'+'\nSimulation Preliminary', fontsize=14, color='blue' )
+    _str_to_write = r'$\bf{ICARUS}$ Simulation'
+    if _newline:
+        _str_to_write += '\n'
+    else:
+        _str_to_write += ' '
+    _str_to_write += 'Work In Progress'
 
-def ICARUSDataPreliminary(_axis,_locRight=False):
-    _yrange = _axis.get_ylim()
-    _use_y = _yrange[1] + 0.015*(_yrange[1] - _yrange[0])
-    _xrange = _axis.get_xlim()
     if _locRight==True:
-        _use_x = _xrange[1] - 0.015*(_xrange[1] - _xrange[0])
-        return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$'+'\nData Preliminary', fontsize=14, color='#d67a11', horizontalalignment='right' )
-    _use_x = _xrange[0] + 0.015*(_xrange[1] - _xrange[0])
-    return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$'+'\nData Preliminary', fontsize=14, color='#d67a11' )
+        _use_x = _xrange[1] - _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
+        return _axis.text( x=_use_x, y=_use_y, s=_str_to_write, fontsize=14, color='blue', horizontalalignment='right' )
+    _use_x = _xrange[0] + _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
+    return _axis.text( x=_use_x, y=_use_y, s=_str_to_write, fontsize=14, color='blue' )
+
+def ICARUSDataWip(_axis, _newline=False, _locRight=False):
+    _yrange = _axis.get_ylim()
+    _use_y = _yrange[1] + _LABEL_Y_OFFSET*(_yrange[1] - _yrange[0])
+    _xrange = _axis.get_xlim()
+
+    _str_to_write = r'$\bf{ICARUS}$ Data'
+    if _newline:
+        _str_to_write += '\n'
+    else:
+        _str_to_write += ' '
+    _str_to_write += 'Work In Progress'
+
+    if _locRight==True:
+        _use_x = _xrange[1] - _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
+        return _axis.text( x=_use_x, y=_use_y, s=_str_to_write, fontsize=14, color='#d67a11', horizontalalignment='right' )
+    _use_x = _xrange[0] + _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
+    return _axis.text( x=_use_x, y=_use_y, s=_str_to_write, fontsize=14, color='#d67a11' )
+
+def ICARUSMCPreliminary(_axis, _newline=False, _locRight=False):
+    _yrange = _axis.get_ylim()
+    _use_y = _yrange[1] + _LABEL_Y_OFFSET*(_yrange[1] - _yrange[0])
+    _xrange = _axis.get_xlim()
+
+    _str_to_write = r'$\bf{ICARUS}$ Simulation'
+    if _newline:
+        _str_to_write += '\n'
+    else:
+        _str_to_write += ' '
+    _str_to_write += 'Preliminary'
+
+    if _locRight==True:
+        _use_x = _xrange[1] - _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
+        return _axis.text( x=_use_x, y=_use_y, s=_str_to_write, fontsize=14, color='blue', horizontalalignment='right' )
+    _use_x = _xrange[0] + _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
+    return _axis.text( x=_use_x, y=_use_y, s=_str_to_write, fontsize=14, color='blue' )
+
+def ICARUSDataPreliminary(_axis, _newline=False, _locRight=False):
+    _yrange = _axis.get_ylim()
+    _use_y = _yrange[1] + _LABEL_Y_OFFSET*(_yrange[1] - _yrange[0])
+    _xrange = _axis.get_xlim()
+
+    _str_to_write = r'$\bf{ICARUS}$ Data'
+    if _newline:
+        _str_to_write += '\n'
+    else:
+        _str_to_write += ' '
+    _str_to_write += 'Preliminary'
+
+    if _locRight==True:
+        _use_x = _xrange[1] - _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
+        return _axis.text( x=_use_x, y=_use_y, s=_str_to_write, fontsize=14, color='#d67a11', horizontalalignment='right' )
+    _use_x = _xrange[0] + _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
+    return _axis.text( x=_use_x, y=_use_y, s=_str_to_write, fontsize=14, color='#d67a11' )
 
 def ICARUSMC(_axis,_locRight=False):
     _yrange = _axis.get_ylim()
-    _use_y = _yrange[1] + 0.015*(_yrange[1] - _yrange[0])
+    _use_y = _yrange[1] + _LABEL_Y_OFFSET*(_yrange[1] - _yrange[0])
     _xrange = _axis.get_xlim()
     if _locRight==True:
-        _use_x = _xrange[1] - 0.015*(_xrange[1] - _xrange[0])
+        _use_x = _xrange[1] - _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
         return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Simulation', fontsize=14, color='blue', horizontalalignment='right' )
-    _use_x = _xrange[0] + 0.015*(_xrange[1] - _xrange[0])
+    _use_x = _xrange[0] + _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
     return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Simulation', fontsize=14, color='blue' )
 
 def ICARUSData(_axis,_locRight=False):
     _yrange = _axis.get_ylim()
-    _use_y = _yrange[1] + 0.015*(_yrange[1] - _yrange[0])
+    _use_y = _yrange[1] + _LABEL_Y_OFFSET*(_yrange[1] - _yrange[0])
     _xrange = _axis.get_xlim()
     if _locRight==True:
-        _use_x = _xrange[1] - 0.015*(_xrange[1] - _xrange[0])
+        _use_x = _xrange[1] - _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
         return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Data', fontsize=14, color='#d67a11', horizontalalignment='right' )
-    _use_x = _xrange[0] + 0.015*(_xrange[1] - _xrange[0])
+    _use_x = _xrange[0] + _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
     return _axis.text( x=_use_x, y=_use_y, s=r'$\bf{ICARUS}$ Data', fontsize=14, color='#d67a11' )
 
 def POT(_axis,_pot,_beam='NuMI'):
@@ -195,9 +230,9 @@ def Preliminary(_axis,_loc='upper left',_size=20):
 
 def AddTextTopLeft(_axis, label):
     _yrange = _axis.get_ylim()
-    _use_y = _yrange[1] + 0.015*(_yrange[1] - _yrange[0])
+    _use_y = _yrange[1] + _LABEL_Y_OFFSET*(_yrange[1] - _yrange[0])
     _xrange = _axis.get_xlim()
-    _use_x = _xrange[0] + 0.*(_xrange[1] - _xrange[0])
+    _use_x = _xrange[0] + _LABEL_X_OFFSET*(_xrange[1] - _xrange[0])
     return _axis.text( x=_use_x, y=_use_y, s=label, fontsize=14, color='k' )
 
 #######################
