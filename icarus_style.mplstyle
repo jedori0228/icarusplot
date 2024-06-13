@@ -28,6 +28,7 @@ xtick.bottom: True
 xtick.direction: in
 xtick.minor.visible: True
 xtick.major.size: 10
+xtick.major.pad: 8
 xtick.minor.size: 5
 xtick.labelsize: x-large
 
